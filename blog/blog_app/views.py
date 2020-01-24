@@ -8,8 +8,14 @@ class PostList(generics.ListAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
+class AuthorDetail(generics.ListAPIView):
+    serializer_class = AuthorSerializer
+    def get_queryset(self):
+        id = self.kwargs['id']
+        return Author.objects.filter(id=id)
+
 class PostDetail(generics.ListAPIView):
     serializer_class = PostSerializer
     def get_queryset(self):
-        name = self.kwargs['name']
-        return Post.objects.filter(name=name)
+        id = self.kwargs['id']
+        return Post.objects.filter(id=id)

@@ -7,10 +7,11 @@ class Author(models.Model):
     This Model Class represents authors.
     """
     user = models.OneToOneField(User,on_delete=models.SET_NULL,null=True)
+    name = models.CharField(max_length=80)
     author_info = models.TextField(max_length=400,help_text="Enter Author Info Here.")
 
     class Meta:
-        ordering = ["user","author_info"]
+        ordering = ["user","name","author_info"]
     def __str__(self):
         return self.user.username
 

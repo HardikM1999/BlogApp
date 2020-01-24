@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {Navbar,NavItem,Nav,NavbarBrand,NavLink} from 'reactstrap';
+import {Navbar,NavItem,Nav,NavbarBrand,NavLink,NavbarText} from 'reactstrap';
 
 class NavBar extends Component{
 
@@ -10,7 +10,7 @@ class NavBar extends Component{
                 <NavbarBrand href="/">
                     BlogZilla!
                 </NavbarBrand>
-                <Nav className="mr-auto" navbar>
+                <Nav className="d-flex mr-auto justify-content-center" navbar>
                     <NavItem>
                         <NavLink href="">
                             Login
@@ -32,6 +32,7 @@ class NavBar extends Component{
                         </NavLink>
                     </NavItem>
                 </Nav>  
+                <NavbarText>Best Blog App</NavbarText>
             </Navbar>
         );
     }

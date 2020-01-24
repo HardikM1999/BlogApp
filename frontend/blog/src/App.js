@@ -1,24 +1,37 @@
 import React,{Component} from 'react';
 import './App.css';
 import NavBar from './components/navbar';
-import {Jumbotron,Container,Button} from 'reactstrap';
+import {Jumbotron,Container,Button,Card,CardBody,CardTitle,CardText,Badge} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
+import Post from './components/Post';
+import Home from './components/Home';
+import axios from 'axios';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 class App extends Component{
+  
   render(){
     return(
-      <div>
-        <NavBar />
-        <Jumbotron>
-          <h1 className="display-3">
-            BlogZilla
-          </h1>
-          <p>Best Website to do Blogging out there!</p>
-        </Jumbotron>
-        <Button color="primary">
-          Hello
-        </Button>
-      </div>
+      <Router>
+        <div>
+          <NavBar />
+          <div className="router">
+          <Switch>
+            <Route path="/post/:id" component={Post}>
+              {/* <Post props={...props}/> */}
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+          </div>
+        </div>
+      </Router>
     );
   }
 }
