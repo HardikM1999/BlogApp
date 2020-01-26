@@ -11,29 +11,38 @@ class Post extends Component {
         super(props);
         this.state = {
             post: {
+                id: 0,
+                name: '',
+                author: '',
+                blog_post: '',
+                post_date: ''
             },
             author: {
-            }
+            },
+            comments: []
         }
     }
     componentDidMount()
     {
         //console.log(this.props.location.pathname);
         axios.get('http://127.0.0.1:8000' + this.props.location.pathname).then((response)=> {
+            //console.log(response);
             this.setState({ post: response.data[0]})
+            this.setState({comments: response.data[0].comments})
+            console.log(this.state.comments);
             //console.log(this.state.post);
             axios.get('http://127.0.0.1:8000/author/' + this.state.post.author).then((response) => {
                 this.setState({author: response.data[0]})
                 //console.log(this.state.author);
-                //console.log();
             })
          })
     }
     render()
     {
+        let comments = this.state.comments;
         return(
             <div className="bg-post">
-                <Link to="/">Back</Link>
+                <Link className="text-dark" to="/"><b>Back</b></Link>
                 <div className="post">
                     <h3 className="text-primary">
                         {this.state.post.name}
@@ -42,11 +51,26 @@ class Post extends Component {
                         <b>Author</b> : {this.state.author.name}
                     </p>
                     <p>
-                        <b>Post</b> : {this.state.post.blog_post}
+                        <b>Post</b>:<br />  {this.state.post.blog_post}
                     </p>
                     <p>
                         <b>Date</b> : {this.state.post.post_date}
                     </p>
+                </div>
+                <br />
+                <div className="comments">
+                <h4 className="text-info">Comments</h4>
+                    {
+                        comments.map((com,index) =>
+                            <div className="comment">
+                                <Card className="card">
+                                    <CardText><b>{index+1}</b>. {com.comment}</CardText>
+                                    <CardText>Date: {com.post_date}</CardText>
+                                </Card>
+                                <br />
+                            </div>
+                        )
+                    }
                 </div>
             </div>
         );

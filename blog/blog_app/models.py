@@ -36,9 +36,9 @@ class PostComment(models.Model):
     Model representing comments on a specific blog post.
     """
     comment = models.TextField(max_length = 200,help_text = "Enter Comment here.")
+    post = models.ForeignKey(Post,on_delete=models.CASCADE,related_name='comments')
     author = models.ForeignKey(Author,on_delete=models.SET_NULL,null=True)
     post_date = models.DateField(default = date.today)
-    post = models.ForeignKey(Post,on_delete=models.CASCADE)
 
 
     def __str__(self):

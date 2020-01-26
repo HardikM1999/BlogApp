@@ -1,7 +1,5 @@
 .post 
 {
-    padding-left: 30%;
-    padding-right: 30%;
     text-align: center;
 }
 .head-text {
@@ -9,4 +7,10 @@
 }
 .router {
     height: 100%;
+}
+.app {
+    height: 100vh;
+    background-image: url('./bg.jpg');
+    background-color: rgba(255,255,255,0.6);
+    background-blend-mode: lighten;
 }

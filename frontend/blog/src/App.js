@@ -18,17 +18,17 @@ class App extends Component{
   render(){
     return(
       <Router>
-        <div>
+        <div className="app">
           <NavBar />
           <div className="router">
-          <Switch>
-            <Route path="/post/:id" component={Post}>
-              {/* <Post props={...props}/> */}
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
+            <Switch>
+              <Route path="/post/:id" component={Post}>
+                {/* <Post props={...props}/> */}
+              </Route>
+              <Route path="/">
+                <Home />
+              </Route>
+            </Switch>
           </div>
         </div>
       </Router>
