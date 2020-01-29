@@ -14,6 +14,7 @@ class AuthorDetail(generics.ListAPIView):
         id = self.kwargs['id']
         return Author.objects.filter(id=id)
 
+
 class PostDetail(generics.ListAPIView):
     serializer_class = PostSerializer
     def get_queryset(self):
