@@ -5,8 +5,14 @@ from rest_framework import generics
 
 
 class PostList(generics.ListAPIView):
-    queryset = Post.objects.all()
+    # queryset = Post.objects.all()
     serializer_class = PostSerializer
+    def get_queryset(self):
+        mode = self.kwargs['mode']
+        if mode == "date":
+            return Post.objects.order_by('-post_date')
+        elif mode == "likes":
+            return Post.objects.order_by('likes')
 
 class AuthorDetail(generics.ListAPIView):
     serializer_class = AuthorSerializer
