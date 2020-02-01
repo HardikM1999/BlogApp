@@ -7,17 +7,18 @@ class NavBar extends Component{
     {
         return(
             <Navbar color="light" light expand="md">
+                {/* <image href="blog.png"></image> */}
                 <NavbarBrand href="/">
-                    BlogZilla!
+                    BlogApp
                 </NavbarBrand>
                 <Nav className="d-flex mr-auto justify-content-center" navbar>
                     <NavItem>
-                        <NavLink href="">
+                        <NavLink href="/login">
                             Login
                         </NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink href="">
+                        <NavLink href="/signup">
                             SignUp
                         </NavLink>
                     </NavItem>

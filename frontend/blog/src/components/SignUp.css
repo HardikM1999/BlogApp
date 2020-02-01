@@ -1,0 +1,16 @@
+.signup_form {
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+.signup_card {
+    padding-top: 1%;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    margin-top: 5%;
+    margin-left: 30%;
+    margin-right: 30%;
+}

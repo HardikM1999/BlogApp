@@ -13,9 +13,15 @@ class Post extends Component {
             post: {
                 id: 0,
                 name: '',
-                author: '',
+                author: {
+                    user: 0,
+                    name: '',
+                    author_info: ''
+                },
                 blog_post: '',
-                post_date: ''
+                post_date: '',
+                likes: -1,
+                dislikes: -1
             },
             author: {
             },
@@ -29,12 +35,12 @@ class Post extends Component {
             //console.log(response);
             this.setState({ post: response.data[0]})
             this.setState({comments: response.data[0].comments})
-            console.log(this.state.comments);
+            //console.log(this.state.comments);
             //console.log(this.state.post);
-            axios.get('http://127.0.0.1:8000/author/' + this.state.post.author).then((response) => {
-                this.setState({author: response.data[0]})
-                //console.log(this.state.author);
-            })
+            // axios.get('http://127.0.0.1:8000/author/' + this.state.post.author).then((response) => {
+            //     this.setState({author: response.data[0]})
+            //     //console.log(this.state.author);
+            // })
          })
     }
     render()
@@ -48,7 +54,7 @@ class Post extends Component {
                         {this.state.post.name}
                     </h3>
                     <p>
-                        <b>Author</b> : {this.state.author.name}
+                        <b>Author</b> : {this.state.post.author.name}
                     </p>
                     <p>
                         <b>Post</b>:<br />  {this.state.post.blog_post}
@@ -56,10 +62,16 @@ class Post extends Component {
                     <p>
                         <b>Date</b> : {this.state.post.post_date}
                     </p>
+                    <p>
+                        <b>Likes</b> : {this.state.post.likes}
+                    </p>
+                    <p>
+                        <b>Dislikes</b> : {this.state.post.dislikes}
+                    </p>
                 </div>
                 <br />
                 <div className="comments">
-                <h4 className="text-info">Comments</h4>
+                <h4 className="text-primary">Comments</h4>
                     {
                         comments.map((com,index) =>
                             <div className="comment">

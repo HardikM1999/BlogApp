@@ -7,26 +7,30 @@ Link {
 }
 
 .comments {
+    background-color: rgba(255, 255, 255, 0.9);
     text-align: center; 
     margin-left: 30%;
     margin-right: 30%;
     border: 2px solid #ff7300;
     border-collapse: separate;
-    border-radius: 20px;
+    border-radius: 10px;
     padding-left: 1%;
     padding-right: 1%;
 }
 
 .card{
-    border-radius: 10px;
+    border-radius: 3px;
 }
 
 CardTitle {
     text-align: left;
 }
+/* .text-info {
+    color: black;
+} */
 
 .post {
-    background-color: rgba(255, 255, 255, 0.753);
+    background-color: rgba(255, 255, 255, 0.9);
     margin-left: 20%;
     margin-right: 20%;
     padding-right: 2%;
