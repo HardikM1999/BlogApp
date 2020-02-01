@@ -12,7 +12,9 @@ class PostList(generics.ListAPIView):
         if mode == "date":
             return Post.objects.order_by('-post_date')
         elif mode == "likes":
-            return Post.objects.order_by('likes')
+            return Post.objects.order_by('-likes')
+        else:
+            return Post.objects.order_by('-dislikes')
 
 class AuthorDetail(generics.ListAPIView):
     serializer_class = AuthorSerializer
